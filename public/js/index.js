@@ -1,22 +1,20 @@
 var socket = io();
 
-socket.on('connect', function() {
-  console.log("Connect to server!");
+socket.on('connect', function () {
+  console.log('Connected to server');
 });
 
-socket.on('disconnect', function() {
-  console.log("Disconnected from server!");
+socket.on('disconnect', function () {
+  console.log('Disconnected from server');
 });
 
-socket.on('newMessage', function(message) {
-    console.log('newMessage', message);
+socket.on('newMessage', function (message1) {
+  console.log('newMessage', message1);
 });
-
-const callback = function(data) {
-    console.log('Got it', data);
-}
 
 socket.emit('createMessage', {
-    from: 'Frank',
-    text: 'Hi'
-}, callback);
+  from: 'Frank',
+  text: 'Hi'
+}, function (data) {
+  console.log('Got it', data);
+});
