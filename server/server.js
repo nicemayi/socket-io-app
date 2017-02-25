@@ -23,11 +23,6 @@ io.on('connection', (socket) => {
     console.log('createMessage', message1);
     io.emit('newMessage', generateMessage(message1.from, message1.text));
     callback1('This is from the server.');
-    // socket.broadcast.emit('newMessage', {
-    //   from: message.from,
-    //   text: message.text,
-    //   createdAt: new Date().getTime()
-    // });
   });
 
   socket.on('disconnect', () => {
